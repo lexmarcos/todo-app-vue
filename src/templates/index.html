@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Todo App</title>
+</head>
+<body>
+<div id="app">
+    <v-app>
+        <toolbar>Play OCP</toolbar>
+        <v-content>
+            <router-view></router-view>
+        </v-content>
+    </v-app>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../static/js/toolbar.js"></script>
+<script src="../static/js/home.js"></script>
+<script src="../static/js/login.js"></script>
+<script src="../static/js/signup.js"></script>
+<script src="../static/js/todos.js"></script>
+<script>
+
+    const routes = [
+        {path: '/', component: homePage},
+        {path: '/login', component: loginPage},
+        {path: '/register', component: signUpPage},
+        {path: '/todos', component: todosPage},
+    ]
+
+    // 3. Create the router instance and pass the `routes` option
+    // You can pass in additional options here, but let's
+    // keep it simple for now.
+    const router = new VueRouter({
+        routes // short for `routes: routes`
+    })
+    // 4. Create and mount the root instance.
+    // Make sure to inject the router with the router option to make the
+    // whole app router-aware.
+    var app = new Vue({
+      el: '#app',
+      vuetify: new Vuetify({
+        icons: {
+          iconfont: 'mdi',
+        },
+      }),
+      router
+    });
+</script>
+</body>
+</html>

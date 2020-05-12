@@ -1,0 +1,9 @@
+.shell-todo{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+a{
+    text-decoration: none;
+}
